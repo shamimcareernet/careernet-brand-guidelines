@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careernet - UI/UX Design System & Brand Guidelines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #008CB6;
+            --action-yellow: #FCB813;
+            --dark-blue: #06325E;
+            --pure-black: #000000;
+            --light-grey: #F7F7F7;
+            --white: #ffffff;
+            --hover-blue: #007a9f;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--white);
+            color: var(--pure-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--dark-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--pure-black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(252, 184, 19, 0.15);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(252, 184, 19, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-40px) translateX(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 57px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 21px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 47px;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,140,182,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: var(--dark-blue);
+            font-weight: 700;
+        }
+
+        /* Typography Showcase */
+        .type-specimen {
+            background: var(--light-grey);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .type-label {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .type-display {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-blue);
+            margin-top: 10px;
+        }
+
+        .h1-demo { font-size: 57px; font-weight: 700; line-height: 1.2; }
+        .h2-demo { font-size: 47px; font-weight: 700; line-height: 1.2; }
+        .h3-demo { font-size: 32px; font-weight: 700; line-height: 1.3; }
+        .h4-demo { font-size: 24px; font-weight: 700; line-height: 1.4; }
+        .h5-demo { font-size: 21px; font-weight: 700; line-height: 1.4; }
+        .body-demo { font-size: 16px; line-height: 25px; }
+
+        .type-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .type-spec {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .type-spec strong {
+            color: var(--pure-black);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* Color System */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .color-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .color-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .color-swatch {
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .color-swatch::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .color-name {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .color-info {
+            padding: 20px;
+        }
+
+        .color-hex {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .color-usage {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .color-usage-tag {
+            display: inline-block;
+            background: var(--light-grey);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 5px 5px 0 0;
+            color: var(--pure-black);
+        }
+
+        /* Button Showcase */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .button-demo-card {
+            background: var(--light-grey);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .button-demo-card h4 {
+            font-size: 18px;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--hover-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,140,182,0.3);
+        }
+
+        .btn-secondary {
+            background: var(--action-yellow);
+            color: var(--pure-black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252,184,19,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .button-specs {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .button-specs ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .button-specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--light-grey);
+            font-size: 14px;
+        }
+
+        .button-specs li:last-child {
+            border-bottom: none;
+        }
+
+        /* Spacing System */
+        .spacing-visual {
+            background: var(--light-grey);
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .spacing-demo-box {
+            background: var(--white);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 2px dashed var(--primary-blue);
+        }
+
+        .spacing-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--action-yellow);
+            color: var(--pure-black);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(252,184,19,0.3);
+        }
+
+        .spacing-20 { padding: 20px; }
+        .spacing-35 { padding: 35px; }
+        .spacing-60 { padding: 60px; }
+
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .spacing-info-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-blue);
+        }
+ /* Style Options Grid */
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .style-option-card {
+            background: var(--light-grey);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .style-option-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .style-option-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .style-option-content {
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .style-example {
+            background: var(--light-grey);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .style-specs {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .style-specs strong {
+            color: var(--dark-blue);
+        }
+
+        /* Size Reasoning */
+        .size-reasoning {
+            background: linear-gradient(135deg, rgba(0,140,182,0.05), rgba(6,50,94,0.05));
+            border-left: 4px solid var(--primary-blue);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .size-reasoning h4 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .reasoning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .reasoning-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .reasoning-item h5 {
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .reasoning-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Brand Reference */
+        .brand-reference {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .brand-reference h4 {
+            color: var(--action-yellow);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .brand-reference p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .reference-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .reference-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        /* Border Radius */
+        .radius-showcase {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .radius-item {
+            text-align: center;
+        }
+
+        .radius-demo-box {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(0,140,182,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .radius-demo-box:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .radius-10 { border-radius: 10px; }
+        .radius-30 { border-radius: 30px; }
+        .radius-6 { border-radius: 6px; }
+
+        .radius-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+        }
+
+        .radius-usage {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Components Showcase */
+        .component-preview {
+            background: var(--light-grey);
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .counter-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .counter-box {
+            background: var(--light-grey);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .counter-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 25px rgba(0,140,182,0.2);
+        }
+
+        .counter-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: var(--primary-blue);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 30px;
+            color: var(--white);
+        }
+
+        .counter-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .counter-desc {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Do's and Don'ts */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .do-dont-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .do-dont-header {
+            padding: 15px 25px;
+            font-weight: 700;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .do-header {
+            background: #10b981;
+            color: var(--white);
+        }
+
+        .dont-header {
+            background: #ef4444;
+            color: var(--white);
+        }
+
+        .do-dont-content {
+            background: var(--white);
+            padding: 25px;
+        }
+
+        .do-dont-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .do-dont-content li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid var(--light-grey);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .do-dont-content li:last-child {
+            border-bottom: none;
+        }
+
+        .do-dont-content li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .do-card li::before {
+            content: '✓';
+            color: #10b981;
+        }
+
+        .dont-card li::before {
+            content: '✗';
+            color: #ef4444;
+        }
+
+        /* Interactive Examples */
+        .interactive-demo {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid var(--light-grey);
+            margin-top: 30px;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            padding: 8px 20px;
+            background: var(--light-grey);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .demo-btn:hover,
+        .demo-btn.active {
+            background: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        /* Accessibility Section */
+        .accessibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .accessibility-card {
+            background: var(--light-grey);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .accessibility-card h4 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .accessibility-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .accessibility-card li {
+            padding: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .accessibility-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(252, 184, 19, 0.1);
+            border-radius: 50%;
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-section h2 {
+            font-size: 47px;
+            margin-bottom: 20px;
+        }
+
+        .download-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--pure-black);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero .subtitle { font-size: 18px; }
+            .section-title { font-size: 32px; }
+            .section { padding: 40px 0; }
+            
+            .h1-demo { font-size: 32px; }
+            .h2-demo { font-size: 28px; }
+            .h3-demo { font-size: 24px; }
+            
+            .nav-links { display: none; }
+            
+            .spacing-grid { grid-template-columns: 1fr; }
+            .radius-showcase { flex-direction: column; align-items: center; }
+            
+            .download-section h2 { font-size: 28px; }
+            .download-buttons { flex-direction: column; }
+        }
+
+        /* Copy Code Button */
+        .code-block {
+            position: relative;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 6px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--hover-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="logo">CAREERNET</div>
+            <ul class="nav-links">
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#colors">Colors</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#spacing">Spacing</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#guidelines">Guidelines</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="version-badge">Version 2.0 — 2025</span>
+            <h1>Careernet Design System</h1>
+            <p class="subtitle">A comprehensive UI/UX framework for building consistent, accessible, and modern digital experiences</p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Design Principles</h2>
+                <p class="section-description">Our design system is built on clarity, consistency, and user-centered thinking. Every element serves a purpose.</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">C</div>
+                        <h3 class="card-title">Clarity</h3>
+                    </div>
+                    <p>Every element communicates its purpose instantly. No confusion, no ambiguity—just clear, purposeful design that guides users naturally.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">C</div>
+                        <h3 class="card-title">Consistency</h3>
+                    </div>
+                    <p>Unified visual language across all touchpoints. Predictable patterns that build user confidence and reduce cognitive load.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">A</div>
+                        <h3 class="card-title">Accessibility</h3>
+                    </div>
+                    <p>Inclusive design that works for everyone. WCAG 2.1 AA compliant colors, readable typography, and touch-friendly interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="section" id="typography" style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Typography System</h2>
+                <p class="section-description">Lato provides excellent readability across all devices with a professional, approachable character</p>
+            </div>
+
+            <div class="card">
+                <h3 style="color: var(--dark-blue); margin-bottom: 30px;">Type Scale & Hierarchy</h3>
+                
+                <div class="type-specimen">
+                    <span class="type-label">H1 — Hero Heading</span>
+                    <div class="type-display">
+                        <div class="h1-demo">Transform Your Career Journey</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Size:</strong> 57px</div>
+                        <div class="type-spec"><strong>Weight:</strong> 700 (Bold)</div>
+                        <div class="type-spec"><strong>Line Height:</strong> 1.2</div>
+                        <div class="type-spec"><strong>Usage:</strong> Page heroes only</div>
+                    </div>
+                </div>
+
+                <div class="type-specimen">
+                    <span class="type-label">H2 — Section Title</span>
+                    <div class="type-display">
+                        <div class="h2-demo">Building Better Experiences</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Size:</strong> 47px</div>
+                        <div class="type-spec"><strong>Weight:</strong> 700 (Bold)</div>
+                        <div class="type-spec"><strong>Line Height:</strong> 1.2</div>
+                        <div class="type-spec"><strong>Usage:</strong> Major sections</div>
+                    </div>
+                </div>
+
+                <div class="type-specimen">
+                    <span class="type-label">H3 — Subsection Heading</span>
+                    <div class="type-display">
+                        <div class="h3-demo">Key Features Overview</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Size:</strong> 32px</div>
+                        <div class="type-spec"><strong>Weight:</strong> 700 (Bold)</div>
+                        <div class="type-spec"><strong>Line Height:</strong> 1.3</div>
+                        <div class="type-spec"><strong>Usage:</strong> Content sections</div>
+                    </div>
+                </div>
+
+                <div class="type-specimen">
+                    <span class="type-label">H4 — Card Title</span>
+                    <div class="type-display">
+                        <div class="h4-demo">Latest Industry Insights</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Size:</strong> 24px</div>
+                        <div class="type-spec"><strong>Weight:</strong> 700 (Bold)</div>
+                        <div class="type-spec"><strong>Line Height:</strong> 1.4</div>
+                        <div class="type-spec"><strong>Usage:</strong> Cards, blog titles</div>
+                    </div>
+                </div>
+
+                <div class="type-specimen">
+                    <span class="type-label">H5 — Small Heading</span>
+                    <div class="type-display">
+                        <div class="h5-demo">Mobile Navigation Title</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Size:</strong> 21px</div>
+                        <div class="type-spec"><strong>Weight:</strong> 700 (Bold)</div>
+                        <div class="type-spec"><strong>Line Height:</strong> 1.4</div>
+                        <div class="type-spec"><strong>Usage:</strong> Mobile body text</div>
+                    </div>
+                </div>
+
+                <div class="type-specimen">
+                    <span class="type-label">Body Text</span>
+                    <div class="type-display">
+                        <div class="body-demo">This is standard paragraph text optimized for comfortable reading across all devices. The line height of 25px ensures excellent readability without feeling cramped or too loose.</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Size:</strong> 16px</div>
+                        <div class="type-spec"><strong>Weight:</strong> 400 (Regular)</div>
+                        <div class="type-spec"><strong>Line Height:</strong> 25px (1.5625)</div>
+                        <div class="type-spec"><strong>Usage:</strong> All body content</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography Rules -->
+            <div class="grid grid-2" style="margin-top: 40px;">
+                <div class="card">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Font Family</h4>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+font-family: 'Lato', sans-serif;</div>
+                    <p style="margin-top: 15px; font-size: 14px; color: #666;">Always include sans-serif as fallback. Load from Google Fonts for best performance.</p>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Text Case Rules</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Headings:</strong> Title Case</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Body Text:</strong> Sentence case</li>
+                        <li style="padding: 10px 0;"><strong>Buttons:</strong> Title Case</li>
+                    </ul>
+                </div>
+            </div>
+             <!-- Size Reasoning -->
+            <div class="size-reasoning">
+                <h4>Size Reasoning & Brand Justification</h4>
+                <div class="reasoning-grid">
+                    <div class="reasoning-item">
+                        <h5>Readability</h5>
+                        <p>16px body text with 25px line-height (1.5625 ratio) ensures comfortable reading for extended content consumption, meeting optimal readability standards for digital interfaces.</p>
+                    </div>
+                    <div class="reasoning-item">
+                        <h5>B2B Clarity</h5>
+                        <p>Clear hierarchy from 57px (H1) down to 16px (body) creates scannable content structure essential for enterprise decision-makers reviewing information quickly.</p>
+                    </div>
+                    <div class="reasoning-item">
+                        <h5>Professional Hierarchy</h5>
+                        <p>Consistent scale reduction between heading levels (57→47→32→24→21) maintains visual rhythm while differentiating content importance levels clearly.</p>
+                    </div>
+                    <div class="reasoning-item">
+                        <h5>Accessibility (WCAG AA)</h5>
+                        <p>Minimum 16px text size meets WCAG AA standards. Combined with Lato's open letterforms and generous x-height, ensures legibility for users with visual impairments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Reference -->
+            <div class="brand-reference">
+                <h4>Design Framework Alignment</h4>
+                <p>Our typography system follows enterprise B2B best practices established by leading design frameworks. The 16px minimum body text aligns with IBM Carbon and Microsoft Fluent UI standards. Our line-height ratio (1.5625) matches Atlassian Design System recommendations for enterprise readability. The clear hierarchy mirrors SAP Fiori's information architecture principles. All sizing decisions meet WCAG AA contrast and readability requirements.</p>
+                <div class="reference-list">
+                    <span class="reference-badge">IBM Carbon</span>
+                    <span class="reference-badge">Atlassian Design System</span>
+                    <span class="reference-badge">SAP Fiori</span>
+                    <span class="reference-badge">Microsoft Fluent UI</span>
+                    <span class="reference-badge">WCAG AA</span>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- Color System -->
+    <section class="section" id="colors">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Color System</h2>
+                <p class="section-description">Our carefully selected palette ensures accessibility, brand recognition, and visual hierarchy</p>
+            </div>
+
+            <div class="color-palette">
+                <div class="color-item">
+                    <div class="color-swatch" style="background: var(--primary-blue);">
+                        <span class="color-name">Primary Blue</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#008CB6</div>
+                        <p class="color-usage">Primary brand color for actions, links, and key UI elements</p>
+                        <div>
+                            <span class="color-usage-tag">CTAs</span>
+                            <span class="color-usage-tag">Links</span>
+                            <span class="color-usage-tag">Icons</span>
+                            <span class="color-usage-tag">Focus States</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: var(--action-yellow); color: var(--pure-black);">
+                        <span class="color-name">Action Yellow</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#FCB813</div>
+                        <p class="color-usage">High-visibility actions and attention-grabbing elements</p>
+                        <div>
+                            <span class="color-usage-tag">Secondary CTAs</span>
+                            <span class="color-usage-tag">Highlights</span>
+                            <span class="color-usage-tag">Badges</span>
+                            <span class="color-usage-tag">Menu CTAs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: var(--dark-blue);">
+                        <span class="color-name">Dark Blue</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#06325E</div>
+                        <p class="color-usage">Authoritative headings and impactful sections</p>
+                        <div>
+                            <span class="color-usage-tag">Headings</span>
+                            <span class="color-usage-tag">Headers</span>
+                            <span class="color-usage-tag">Footers</span>
+                            <span class="color-usage-tag">Impact Areas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: var(--pure-black);">
+                        <span class="color-name">Pure Black</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#000000</div>
+                        <p class="color-usage">Primary text and strong contrast elements</p>
+                        <div>
+                            <span class="color-usage-tag">Body Text</span>
+                            <span class="color-usage-tag">Navigation</span>
+                            <span class="color-usage-tag">Labels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: var(--light-grey); color: var(--pure-black);">
+                        <span class="color-name">Light Grey</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#F7F7F7</div>
+                        <p class="color-usage">Backgrounds, cards, and neutral sections</p>
+                        <div>
+                            <span class="color-usage-tag">Backgrounds</span>
+                            <span class="color-usage-tag">Cards</span>
+                            <span class="color-usage-tag">Dividers</span>
+                            <span class="color-usage-tag">Counters</span>
+                        </div>
+                    </div>
+                </div>
+<!-- NEW: Brand Gradient -->
+<div class="color-item">
+    <div class="color-swatch" style="background: linear-gradient(135deg, #008CB6 0%, #06325E 100%);">
+        <span class="color-name">linear-gradient</span>
+    </div>
+    <div class="color-info">
+        <div class="color-hex">(135deg, #008CB6 → #06325E)</div>
+        <p class="color-usage">Primary brand gradient for hero backgrounds, banners, cards, and accents</p>
+        <div>
+            <span class="color-usage-tag">Hero BG</span>
+            <span class="color-usage-tag">Banners</span>
+            <span class="color-usage-tag">CTA Accent</span>
+            <span class="color-usage-tag">Illustrations</span>
+        </div>
+    </div>
+</div>
+<!-- end gradient -->
+
+
+            </div>
+
+            <!-- Color Usage Guidelines -->
+            <div class="card" style="margin-top: 50px;">
+                <h3 style="color: var(--dark-blue); margin-bottom: 25px;">Color Usage Best Practices</h3>
+                <div class="grid grid-2">
+                    <div>
+                        <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Primary Blue (#008CB6)</h4>
+                        <ul style="line-height: 2;">
+                            <li>All interactive elements (buttons, links)</li>
+                            <li>Form field focus states</li>
+                            <li>Icon highlights and accents</li>
+                            <li>Progress indicators</li>
+                            <li>Never use for large backgrounds</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--action-yellow); margin-bottom: 15px;">Action Yellow (#FCB813)</h4>
+                        <ul style="line-height: 2;">
+                            <li>Secondary CTAs and highlights</li>
+                            <li>Menu call-to-action buttons</li>
+                            <li>Success badges and notifications</li>
+                            <li>Attention-grabbing accents</li>
+                            <li>Always pair with dark text for accessibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buttons & CTAs -->
+    <section class="section" id="buttons" style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Buttons & CTAs</h2>
+                <p class="section-description">Consistent button styling ensures predictable interactions and clear visual hierarchy</p>
+            </div>
+
+            <div class="button-grid">
+                <div class="button-demo-card">
+                    <h4>Primary Button</h4>
+                    <button class="btn btn-primary">Primary Action</button>
+                    <div class="button-specs">
+                        <ul>
+                            <li><strong>Background:</strong> #008CB6</li>
+                            <li><strong>Text:</strong> White</li>
+                            <li><strong>Radius:</strong> 30px</li>
+                            <li><strong>Padding:</strong> 10px 30px</li>
+                            <li><strong>Hover:</strong> #007a9f + lift</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="button-demo-card">
+                    <h4>Secondary Button</h4>
+                    <button class="btn btn-secondary">Secondary Action</button>
+                    <div class="button-specs">
+                        <ul>
+                            <li><strong>Background:</strong> #FCB813</li>
+                            <li><strong>Text:</strong> Black</li>
+                            <li><strong>Radius:</strong> 30px</li>
+                            <li><strong>Padding:</strong> 10px 30px</li>
+                            <li><strong>Hover:</strong> Blue + white text</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="button-demo-card">
+                    <h4>Outline Button</h4>
+                    <button class="btn btn-outline">Outline Action</button>
+                    <div class="button-specs">
+                        <ul>
+                            <li><strong>Background:</strong> Transparent</li>
+                            <li><strong>Border:</strong> 2px #008CB6</li>
+                            <li><strong>Radius:</strong> 30px</li>
+                            <li><strong>Padding:</strong> 8px 30px</li>
+                            <li><strong>Hover:</strong> Fill with blue</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button Specifications -->
+            <div class="card" style="margin-top: 50px;">
+                <h3 style="color: var(--dark-blue); margin-bottom: 25px;">Button Specifications</h3>
+                <div class="grid grid-3">
+                    <div>
+                        <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Desktop</h4>
+                        <ul style="line-height: 2;">
+                            <li>Min-width: 120px</li>
+                            <li>Height: Auto (based on padding)</li>
+                            <li>Font-size: 16px</li>
+                            <li>Font-weight: 700</li>
+                            <li>Border-radius: 30px</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Mobile</h4>
+                        <ul style="line-height: 2;">
+                            <li>Width: 100% (full-width)</li>
+                            <li>Min-height: 44px (touch target)</li>
+                            <li>Font-size: 16px</li>
+                            <li>Maintain 30px radius</li>
+                            <li>One primary CTA per section</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Interactions</h4>
+                        <ul style="line-height: 2;">
+                            <li>Hover: Darken + slight lift</li>
+                            <li>Active: Slight press effect</li>
+                            <li>Focus: Blue outline (accessibility)</li>
+                            <li>Disabled: 50% opacity</li>
+                            <li>Transition: 0.3s ease</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Border Radius -->
+    <section class="section" id="spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Border Radius System</h2>
+                <p class="section-description">Consistent corner treatments create visual harmony and modern aesthetics</p>
+            </div>
+
+            <div class="radius-showcase">
+                <div class="radius-item">
+                    <div class="radius-demo-box radius-10">10px</div>
+                    <div class="radius-label">Standard Components</div>
+                    <p class="radius-usage">Cards • Containers • Boxes<br>Client Logos • Sections</p>
+                </div>
+
+                <div class="radius-item">
+                    <div class="radius-demo-box radius-30">30px</div>
+                    <div class="radius-label">Buttons & Pills</div>
+                    <p class="radius-usage">All CTAs • Menu Buttons<br>Badges • Pill Shapes</p>
+                </div>
+
+                <div class="radius-item">
+                    <div class="radius-demo-box radius-6">6px</div>
+                    <div class="radius-label">Form Inputs</div>
+                    <p class="radius-usage">Text Fields • Textareas<br>Select Boxes • Input Groups</p>
+                </div>
+            </div>
+
+            <!-- Radius Code -->
+            <div class="card" style="margin-top: 50px;">
+                <h3 style="color: var(--dark-blue); margin-bottom: 25px;">Border Radius CSS</h3>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+/* Component Standard */
+.card, .counter-box, .client-logo {
+    border-radius: 10px;
+}
+
+/* Button Standard */
+.btn, .cta-button, .pill {
+    border-radius: 30px;
+}
+
+/* Input Standard */
+input[type="text"], 
+input[type="email"], 
+textarea {
+    border-radius: 6px;
+}</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spacing System -->
+    <section class="section" style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Spacing & Layout</h2>
+                <p class="section-description">Consistent spacing creates visual rhythm and improves content hierarchy</p>
+            </div>
+
+            <div class="spacing-visual">
+                <div class="spacing-demo-box spacing-20">
+                    <span class="spacing-label">20px Padding</span>
+                    <p>Standard component padding used in cards, boxes, and containers. This creates comfortable breathing room without wasting space.</p>
+                </div>
+
+                <div class="spacing-demo-box spacing-35">
+                    <span class="spacing-label">35px Mobile Section</span>
+                    <p>Mobile section spacing provides adequate separation between content blocks while maintaining a compact, scannable layout.</p>
+                </div>
+
+                <div class="spacing-demo-box spacing-60">
+                    <span class="spacing-label">60px Desktop Section</span>
+                    <p>Desktop section spacing creates clear visual breaks and allows content to breathe properly on larger screens.</p>
+                </div>
+            </div>
+
+            <!-- Spacing Grid -->
+            <div class="spacing-grid">
+                <div class="spacing-info-card">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 15px;">Desktop Spacing</h4>
+                    <ul style="line-height: 2;">
+                        <li><strong>Sections:</strong> 40–60px top & bottom</li>
+                        <li><strong>Cards:</strong> 20px internal padding</li>
+                        <li><strong>Gap between cards:</strong> 15–20px</li>
+                        <li><strong>Form groups:</strong> 20px between fields</li>
+                        <li><strong>Multi-column:</strong> 2–4 columns</li>
+                    </ul>
+                </div>
+
+                <div class="spacing-info-card">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 15px;">Mobile Spacing</h4>
+                    <ul style="line-height: 2;">
+                        <li><strong>Sections:</strong> 20–35px top & bottom</li>
+                        <li><strong>Cards:</strong> 15–20px internal padding</li>
+                        <li><strong>Gap between cards:</strong> 15–20px</li>
+                        <li><strong>Single column:</strong> 100% width stack</li>
+                        <li><strong>Reduced whitespace</strong> but maintain clarity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components -->
+    <section class="section" id="components">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">UI Components</h2>
+                <p class="section-description">Reusable, consistent components ensure design scalability and maintainability</p>
+            </div>
+
+            <!-- <div class="component-preview">
+                <h3 style="color: var(--dark-blue); margin-bottom: 30px; text-align: center;">Counter Boxes</h3>
+                <div class="counter-showcase">
+                    <div class="counter-box">
+                        <div class="counter-icon">📊</div>
+                        <div class="counter-number">10K+</div>
+                        <p class="counter-desc">Active Users</p>
+                    </div>
+                    <div class="counter-box">
+                        <div class="counter-icon">🎯</div>
+                        <div class="counter-number">500+</div>
+                        <p class="counter-desc">Partner Companies</p>
+                    </div>
+                    <div class="counter-box">
+                        <div class="counter-icon">✨</div>
+                        <div class="counter-number">95%</div>
+                        <p class="counter-desc">Success Rate</p>
+                    </div>
+                    <div class="counter-box">
+                        <div class="counter-icon">🚀</div>
+                        <div class="counter-number">24/7</div>
+                        <p class="counter-desc">Support Available</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Component Specs -->
+            <div class="grid grid-2" style="margin-top: 40px;">
+                <div class="card">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Counter Box Specifications</h4>
+                    <ul style="line-height: 2;">
+                        <li><strong>Width:</strong> 18% desktop, min 180px</li>
+                        <li><strong>Background:</strong> #F7F7F7</li>
+                        <li><strong>Padding:</strong> 20px</li>
+                        <li><strong>Border-radius:</strong> 10px</li>
+                        <li><strong>Shadow:</strong> 0 2px 10px rgba(0,0,0,0.1)</li>
+                        <li><strong>Icon size:</strong> 32px</li>
+                        <li><strong>Number size:</strong> 36px, bold</li>
+                        <li><strong>Description:</strong> 16px</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Card Component Specifications</h4>
+                    <ul style="line-height: 2;">
+                        <li><strong>Blog image height:</strong> 250px</li>
+                        <li><strong>Resource image height:</strong> 200px</li>
+                        <li><strong>Client logo:</strong> 120px × 50px</li>
+                        <li><strong>Image behavior:</strong> object-fit: cover</li>
+                        <li><strong>Card padding:</strong> 20px</li>
+                        <li><strong>Card radius:</strong> 10px</li>
+                        <li><strong>Hover effect:</strong> Subtle lift</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guidelines -->
+    <section class="section" id="guidelines" style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Design Do's & Don'ts</h2>
+                <p class="section-description">Follow these best practices to maintain design excellence and brand consistency</p>
+            </div>
+
+            <div class="do-dont-grid">
+                <div class="do-dont-card do-card">
+                    <div class="do-header do-dont-header">
+                        <span>✓</span> Do
+                    </div>
+                    <div class="do-dont-content">
+                        <ul>
+                            <li>Use Lato font family consistently across all text</li>
+                            <li>Maintain 30px border-radius for all buttons</li>
+                            <li>Apply 10px border-radius to cards and containers</li>
+                            <li>Use #008CB6 for primary actions and links</li>
+                            <li>Keep button minimum touch target at 44px on mobile</li>
+                            <li>Use Title Case for headings and buttons</li>
+                            <li>Apply proper spacing: 20-35px mobile, 40-60px desktop</li>
+                            <li>Maintain consistent image heights with object-fit: cover</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="do-dont-card dont-card">
+                    <div class="dont-header do-dont-header">
+                        <span>✗</span> Don't
+                    </div>
+                    <div class="do-dont-content">
+                        <ul>
+                            <li>Never use border-radius below 25px for buttons</li>
+                            <li>Avoid using multiple font families in one design</li>
+                            <li>Don't make buttons full-width on desktop</li>
+                            <li>Never use lowercase for button text</li>
+                            <li>Avoid inconsistent color codes (use uppercase hex)</li>
+                            <li>Don't use border-radius other than 6px, 10px, or 30px</li>
+                            <li>Never skip hover states on interactive elements</li>
+                            <li>Avoid cramped spacing or excessive whitespace</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Accessibility Standards</h2>
+                <p class="section-description">WCAG 2.1 AA compliant design ensuring inclusive experiences for all users</p>
+            </div>
+
+            <div class="accessibility-grid">
+                <div class="accessibility-card">
+                    <h4>Color Contrast</h4>
+                    <ul>
+                        <li>Primary Blue on white: 4.5:1 ratio</li>
+                        <li>Black text on white: 21:1 ratio</li>
+                        <li>Yellow with black text only</li>
+                        <li>Never use yellow for body text</li>
+                    </ul>
+                </div>
+
+                <div class="accessibility-card">
+                    <h4>Touch Targets</h4>
+                    <ul>
+                        <li>Minimum 44px × 44px size</li>
+                        <li>Adequate spacing between targets</li>
+                        <li>Full-width buttons on mobile</li>
+                        <li>Avoid clustered clickable elements</li>
+                    </ul>
+                </div>
+
+                <div class="accessibility-card">
+                    <h4>Typography</h4>
+                    <ul>
+                        <li>Minimum 16px for body text</li>
+                        <li>Line-height of 1.5+ for readability</li>
+                        <li>Avoid long paragraphs (max 75 chars)</li>
+                        <li>Use headings for proper structure</li>
+                    </ul>
+                </div>
+
+                <div class="accessibility-card">
+                    <h4>Focus States</h4>
+                    <ul>
+                        <li>Visible focus indicators always</li>
+                        <li>Blue outline for keyboard navigation</li>
+                        <li>Never remove outline without replacement</li>
+                        <li>Test with keyboard navigation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" style="margin: 0;">
+        <div class="container">
+            <div class="download-content">
+                <h2>Ready to Build with CAREERNET?</h2>
+                <p>Download our complete design system package including Figma files, code snippets, and detailed documentation</p>
+                <div class="download-buttons">
+                    <button class="btn btn-secondary">Download Guidelines PDF</button>
+                    <button class="btn btn-outline" style="color: white; border-color: white;">View on Figma</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 CAREERNET. All rights reserved. | Design System Version 2.0</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.parentElement;
+            const code = codeBlock.textContent.replace('Copy', '').trim();
+            
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
