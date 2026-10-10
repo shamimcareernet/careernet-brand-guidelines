@@ -1,10 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careernet - UI/UX Design System & Brand Guidelines</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -495,6 +498,134 @@
             border-left: 4px solid var(--primary-blue);
         }
 
+        /* Style Options Grid */
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .style-option-card {
+            background: var(--light-grey);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .style-option-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .style-option-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .style-option-content {
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .style-example {
+            background: var(--light-grey);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .style-specs {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .style-specs strong {
+            color: var(--dark-blue);
+        }
+
+        /* Size Reasoning */
+        .size-reasoning {
+            background: linear-gradient(135deg, rgba(0,140,182,0.05), rgba(6,50,94,0.05));
+            border-left: 4px solid var(--primary-blue);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .size-reasoning h4 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .reasoning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .reasoning-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .reasoning-item h5 {
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .reasoning-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Brand Reference */
+        .brand-reference {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .brand-reference h4 {
+            color: var(--action-yellow);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .brand-reference p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .reference-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .reference-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
         /* Border Radius */
         .radius-showcase {
             display: flex;
@@ -854,14 +985,322 @@
         .copy-btn:hover {
             background: var(--hover-blue);
         }
+
+        /* ==========================================================================
+           Brand Logo & Tagline Typography System
+           ========================================================================== */
+        .brand-tagline-kaushan {
+            font-family: 'Kaushan Script', cursive !important;
+        }
+
+        .hero-tagline {
+            margin-top: 18px;
+            font-size: 34px;
+            color: var(--action-yellow);
+            font-family: 'Kaushan Script', cursive;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 36px;
+            max-width: 170px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 35px 0;
+        }
+
+        .logo-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,140,182,0.18);
+        }
+
+        .logo-stage {
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+            position: relative;
+        }
+
+        .logo-stage-light {
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .logo-stage-dark {
+            background: var(--dark-blue);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-stage img {
+            max-width: 260px;
+            height: auto;
+            max-height: 65px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-stage:hover img {
+            transform: scale(1.04);
+        }
+
+        .stage-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-light {
+            background: #eef8fb;
+            color: var(--primary-blue);
+            border: 1px solid rgba(0,140,182,0.2);
+        }
+
+        .badge-dark {
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .logo-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-badge-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .logo-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .logo-format-tag {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: var(--light-grey);
+            color: #555;
+            border: 1px solid #e0e0e0;
+        }
+
+        .logo-meta {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .logo-meta li {
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo-meta li strong {
+            color: var(--dark-blue);
+        }
+
+        .logo-meta li:last-child {
+            border-bottom: none;
+        }
+
+        .logo-action-btn {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: var(--light-grey);
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .logo-action-btn:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(0,140,182,0.25);
+        }
+
+        /* Tagline Rule Highlight Box */
+        .tagline-banner {
+            background: linear-gradient(135deg, #ffffff 0%, #f4fbfe 100%);
+            border: 2px solid var(--primary-blue);
+            border-radius: 12px;
+            padding: 35px;
+            margin: 40px 0;
+            box-shadow: 0 4px 20px rgba(0,140,182,0.08);
+            position: relative;
+        }
+
+        .tagline-banner-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tagline-banner-pill {
+            background: var(--action-yellow);
+            color: var(--pure-black);
+            font-weight: 900;
+            font-size: 12px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tagline-specimen {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 35px 20px;
+            text-align: center;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .tagline-display-text {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 52px;
+            color: var(--dark-blue);
+            line-height: 1.25;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline-font-name {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .tagline-rule-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .rule-box {
+            padding: 22px;
+            border-radius: 8px;
+            background: var(--white);
+            border-left: 5px solid #ccc;
+        }
+
+        .rule-box.valid {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .rule-box.invalid {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .rule-box h5 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rule-box.valid h5 { color: #166534; }
+        .rule-box.invalid h5 { color: #991b1b; }
+
+        .clearspace-box {
+            background: #ffffff;
+            border: 2px dashed var(--primary-blue);
+            border-radius: 8px;
+            padding: 45px 30px;
+            text-align: center;
+            position: relative;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .clearspace-guide {
+            position: absolute;
+            background: rgba(252, 184, 19, 0.2);
+            border: 1px dashed var(--action-yellow);
+            font-size: 11px;
+            font-weight: 700;
+            color: #926200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+        }
+
+        .clearspace-guide.top { top: 0; left: 0; right: 0; height: 30px; }
+        .clearspace-guide.bottom { bottom: 0; left: 0; right: 0; height: 30px; }
+        .clearspace-guide.left { top: 0; bottom: 0; left: 0; width: 30px; }
+        .clearspace-guide.right { top: 0; bottom: 0; right: 0; width: 30px; }
     </style>
 </head>
 <body>
     <!-- Sticky Navigation -->
     <nav class="sticky-nav">
         <div class="nav-container">
-            <div class="logo">CAREERNET</div>
+            <a href="#" class="nav-logo-link">
+                <img src="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" alt="Careernet Logo" class="nav-logo-img">
+            </a>
             <ul class="nav-links">
+                <li><a href="#logo">Logo Guidelines</a></li>
                 <li><a href="#typography">Typography</a></li>
                 <li><a href="#colors">Colors</a></li>
                 <li><a href="#buttons">Buttons</a></li>
@@ -875,9 +1314,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <span class="version-badge">Version 2.0 — 2025</span>
+            <span class="version-badge">Version 2.0 — 2026</span>
             <h1>Careernet Design System</h1>
             <p class="subtitle">A comprehensive UI/UX framework for building consistent, accessible, and modern digital experiences</p>
+            <div class="hero-tagline">
+                <span>We make it happen</span>
+            </div>
         </div>
     </section>
 
@@ -912,6 +1354,194 @@
                         <h3 class="card-title">Accessibility</h3>
                     </div>
                     <p>Inclusive design that works for everyone. WCAG 2.1 AA compliant colors, readable typography, and touch-friendly interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Guidelines -->
+    <section class="section" id="logo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Logo & Brand Identity Guidelines</h2>
+                <p class="section-description">Our logo is the primary symbol of Careernet. Adhere to these standards to ensure clarity, consistency, and professional brand presence across all touchpoints.</p>
+            </div>
+
+            <!-- Two Core Logos Grid -->
+            <div class="logo-grid">
+                <!-- Main Logo -->
+                <div class="logo-card">
+                    <div class="logo-stage logo-stage-light">
+                        <span class="stage-badge badge-light">Light Surfaces</span>
+                        <img src="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" alt="Careernet Main Logo" loading="lazy">
+                    </div>
+                    <div class="logo-content">
+                        <div class="logo-badge-title">
+                            <h3 class="logo-title">Main Logo (Primary)</h3>
+                            <span class="logo-format-tag">SVG Vector</span>
+                        </div>
+                        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">The primary visual identifier for Careernet, optimized for digital interfaces, official portals, white documents, and light brand collateral.</p>
+                        <ul class="logo-meta">
+                            <li><strong>Permitted Surfaces:</strong> Pure White (#FFFFFF), Light Grey (#F7F7F7), light tints</li>
+                            <li><strong>Brand Colors:</strong> Primary Blue (#008CB6) icon & Dark Blue (#06325E) wordmark</li>
+                            <li><strong>Minimum Size:</strong> 140px width (Desktop) | 110px width (Mobile)</li>
+                            <li><strong>Asset URL:</strong> <a href="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); font-size: 12px; word-break: break-all;">Careernet-LOGO-Web-1.svg</a></li>
+                        </ul>
+                        <a href="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" target="_blank" rel="noopener noreferrer" class="logo-action-btn">
+                            <span>Open Main Logo SVG</span> ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reverse Logo -->
+                <div class="logo-card">
+                    <div class="logo-stage logo-stage-dark">
+                        <span class="stage-badge badge-dark">Dark Surfaces</span>
+                        <img src="https://careernet.in/wp-content/uploads/2025/03/CN_Logo_With_R-Web-footer.png" alt="Careernet Reverse Logo" loading="lazy">
+                    </div>
+                    <div class="logo-content">
+                        <div class="logo-badge-title">
+                            <h3 class="logo-title">Reverse Logo (Dark / Footer)</h3>
+                            <span class="logo-format-tag">PNG with ®</span>
+                        </div>
+                        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">Official reversed white logo asset featuring the registered trademark symbol (®), engineered for high-contrast visibility on dark backgrounds.</p>
+                        <ul class="logo-meta">
+                            <li><strong>Permitted Surfaces:</strong> Dark Blue (#06325E), Pure Black (#000000), dark hero gradients, footers</li>
+                            <li><strong>Brand Colors:</strong> High-contrast White typography with registered symbol ®</li>
+                            <li><strong>Minimum Size:</strong> 140px width (Desktop) | 110px width (Mobile)</li>
+                            <li><strong>Asset URL:</strong> <a href="https://careernet.in/wp-content/uploads/2025/03/CN_Logo_With_R-Web-footer.png" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); font-size: 12px; word-break: break-all;">CN_Logo_With_R-Web-footer.png</a></li>
+                        </ul>
+                        <a href="https://careernet.in/wp-content/uploads/2025/03/CN_Logo_With_R-Web-footer.png" target="_blank" rel="noopener noreferrer" class="logo-action-btn">
+                            <span>Open Reverse Logo PNG</span> ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Tagline & Typography Governance Card -->
+            <div class="tagline-banner">
+                <div class="tagline-banner-header">
+                    <span class="tagline-banner-pill">Mandatory Brand Rule</span>
+                    <h3 style="color: var(--dark-blue); font-size: 22px; margin: 0;">Tagline Font Exclusivity: Kaushan Script vs. Lato</h3>
+                </div>
+                <p style="color: #444; font-size: 15px; line-height: 1.7;">
+                    The signature tagline <strong>&ldquo;We make it happen&rdquo;</strong> must be rendered <strong>strictly in Kaushan Script</strong>. Kaushan Script is reserved solely for this phrase and must never be applied to headings, body text, or UI elements. Conversely, <strong>all other text across the entire brand ecosystem must strictly use Lato</strong>.
+                </p>
+
+                <!-- Specimen Box -->
+                <div class="tagline-specimen">
+                    <div class="tagline-display-text">We make it happen</div>
+                    <div class="tagline-font-name">Typeface: <strong>Kaushan Script</strong> (Google Fonts) &bull; Exclusive to this tagline</div>
+                </div>
+
+                <div class="tagline-rule-comparison">
+                    <div class="rule-box valid">
+                        <h5>✓ Authorized Typography Usage</h5>
+                        <ul style="font-size: 13px; color: #333; line-height: 1.7; padding-left: 18px;">
+                            <li><strong>&ldquo;We make it happen&rdquo;</strong> styled only with <code>font-family: 'Kaushan Script', cursive;</code></li>
+                            <li><strong>All Headings (H1 to H5), navigation, buttons, and UI:</strong> <code>font-family: 'Lato', sans-serif;</code></li>
+                            <li><strong>All Body paragraphs, tables, form inputs, and metadata:</strong> <code>font-family: 'Lato', sans-serif;</code></li>
+                        </ul>
+                    </div>
+                    <div class="rule-box invalid">
+                        <h5>✗ Strictly Prohibited Usage</h5>
+                        <ul style="font-size: 13px; color: #333; line-height: 1.7; padding-left: 18px;">
+                            <li>Never render &ldquo;We make it happen&rdquo; in Lato, Arial, Roboto, or standard sans-serif.</li>
+                            <li>Never use Kaushan Script for regular titles, cards, body paragraphs, or buttons.</li>
+                            <li>Never modify tagline casing to ALL-CAPS (&ldquo;WE MAKE IT HAPPEN&rdquo;) in script form.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-block" style="margin-top: 25px;">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+/* 1. Tagline: EXCLUSIVELY for "We make it happen" */
+.brand-tagline, .tagline-text {
+    font-family: 'Kaushan Script', cursive;
+}
+
+/* 2. Global Brand Typography: All remaining text */
+body, h1, h2, h3, h4, h5, p, span, a, button, input, label {
+    font-family: 'Lato', sans-serif;
+}</div>
+            </div>
+
+            <!-- Clear Space & Sizing -->
+            <div class="grid grid-2" style="margin-top: 35px;">
+                <div class="card">
+                    <h3 style="color: var(--dark-blue); margin-bottom: 20px; font-size: 20px;">Clear Space (Exclusion Zone)</h3>
+                    <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+                        Always maintain an unobstructed safety zone around the Careernet logo to preserve its clarity and prominence. No other graphical elements, text, or border lines should enter this space.
+                    </p>
+                    <div class="clearspace-box">
+                        <div class="clearspace-guide top">Clear Space &ge; 'C' Height</div>
+                        <div class="clearspace-guide bottom">Clear Space &ge; 'C' Height</div>
+                        <div class="clearspace-guide left">X</div>
+                        <div class="clearspace-guide right">X</div>
+                        <img src="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" alt="Careernet Clear Space Demo" style="max-width: 220px; height: auto; display: block; margin: 0 auto;">
+                    </div>
+                    <ul style="font-size: 13px; color: #666; line-height: 1.8; list-style: disc; padding-left: 20px;">
+                        <li>The exclusion measurement &lsquo;X&rsquo; is determined by the height of the Careernet &lsquo;C&rsquo; mark.</li>
+                        <li>Maintain this clear boundary across all digital, print, and physical formats.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--dark-blue); margin-bottom: 20px; font-size: 20px;">Minimum Digital Sizing</h3>
+                    <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+                        To ensure that the wordmark and registered symbol (®) remain legible across all screen resolutions and densities, respect these minimum width benchmarks:
+                    </p>
+                    <div style="background: var(--light-grey); padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 14px;">
+                            <strong>Desktop Header:</strong>
+                            <span style="font-family: 'Courier New', monospace; font-weight: 700; color: var(--primary-blue);">140px – 180px width</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 14px;">
+                            <strong>Mobile Header:</strong>
+                            <span style="font-family: 'Courier New', monospace; font-weight: 700; color: var(--primary-blue);">110px – 130px width</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 14px;">
+                            <strong>Footer Reverse:</strong>
+                            <span style="font-family: 'Courier New', monospace; font-weight: 700; color: var(--primary-blue);">140px – 160px width</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; font-size: 14px;">
+                            <strong>Print Materials:</strong>
+                            <span style="font-family: 'Courier New', monospace; font-weight: 700; color: var(--primary-blue);">Minimum 35mm width</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: #666; line-height: 1.6;">
+                        <em>Always scale proportionally. Never compress horizontally, stretch vertically, or adjust letter tracking independently.</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Background Compatibility Matrix -->
+            <div class="card" style="margin-top: 35px;">
+                <h3 style="color: var(--dark-blue); margin-bottom: 20px; font-size: 20px;">Background Compatibility Matrix</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                    <div style="background: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 25px 15px; text-align: center;">
+                        <img src="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" alt="On White" style="max-height: 40px; margin-bottom: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; color: #10b981;">✓ White (#FFFFFF)</div>
+                        <p style="font-size: 12px; color: #666; margin-top: 5px;">Use Main SVG Logo</p>
+                    </div>
+
+                    <div style="background: #F7F7F7; border: 1px solid #e0e0e0; border-radius: 8px; padding: 25px 15px; text-align: center;">
+                        <img src="https://careernet.in/wp-content/uploads/2025/04/Careernet-LOGO-Web-1.svg" alt="On Light Grey" style="max-height: 40px; margin-bottom: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; color: #10b981;">✓ Light Grey (#F7F7F7)</div>
+                        <p style="font-size: 12px; color: #666; margin-top: 5px;">Use Main SVG Logo</p>
+                    </div>
+
+                    <div style="background: #06325E; border-radius: 8px; padding: 25px 15px; text-align: center;">
+                        <img src="https://careernet.in/wp-content/uploads/2025/03/CN_Logo_With_R-Web-footer.png" alt="On Dark Blue" style="max-height: 40px; margin-bottom: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; color: #10b981;">✓ Dark Blue (#06325E)</div>
+                        <p style="font-size: 12px; color: #ddd; margin-top: 5px;">Use Reverse White Logo</p>
+                    </div>
+
+                    <div style="background: #000000; border-radius: 8px; padding: 25px 15px; text-align: center;">
+                        <img src="https://careernet.in/wp-content/uploads/2025/03/CN_Logo_With_R-Web-footer.png" alt="On Black" style="max-height: 40px; margin-bottom: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; color: #10b981;">✓ Pure Black (#000000)</div>
+                        <p style="font-size: 12px; color: #ddd; margin-top: 5px;">Use Reverse White Logo</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1005,25 +1635,87 @@
                         <div class="type-spec"><strong>Usage:</strong> All body content</div>
                     </div>
                 </div>
+
+                <!-- Tagline Typography Specimen -->
+                <div class="type-specimen" style="border: 2px solid var(--action-yellow); background: #fffdf5;">
+                    <span class="type-label" style="background: var(--dark-blue);">Brand Tagline — Signature Asset</span>
+                    <div class="type-display" style="border-left-color: var(--action-yellow);">
+                        <div style="font-family: 'Kaushan Script', cursive; font-size: 38px; color: var(--dark-blue); line-height: 1.3;">We make it happen</div>
+                    </div>
+                    <div class="type-specs">
+                        <div class="type-spec"><strong>Typeface:</strong> Kaushan Script</div>
+                        <div class="type-spec"><strong>Weight:</strong> 400 (Regular)</div>
+                        <div class="type-spec"><strong>Scope:</strong> "We make it happen" text only</div>
+                        <div class="type-spec"><strong>Fallback:</strong> cursive</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Typography Rules -->
             <div class="grid grid-2" style="margin-top: 40px;">
                 <div class="card">
-                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Font Family</h4>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Font Families & Scope</h4>
+                    <div style="margin-bottom: 15px;">
+                        <span style="font-size: 13px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase;">1. Universal Brand Font (Lato)</span>
+                        <div class="code-block" style="margin: 8px 0;">
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 font-family: 'Lato', sans-serif;</div>
-                    <p style="margin-top: 15px; font-size: 14px; color: #666;">Always include sans-serif as fallback. Load from Google Fonts for best performance.</p>
+                        <p style="font-size: 13px; color: #666;">Used for <strong>all</strong> headings, body copy, UI components, buttons, navigation, and data tables.</p>
+                    </div>
+
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--light-grey);">
+                        <span style="font-size: 13px; font-weight: 700; color: #b37d00; text-transform: uppercase;">2. Tagline Font Only (Kaushan Script)</span>
+                        <div class="code-block" style="margin: 8px 0;">
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+font-family: 'Kaushan Script', cursive;</div>
+                        <p style="font-size: 13px; color: #666;"><strong>Strict constraint:</strong> Exclusively applied to the text <em>&ldquo;We make it happen&rdquo;</em>. Prohibited for any other text.</p>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Text Case Rules</h4>
+                    <h4 style="color: var(--dark-blue); margin-bottom: 20px;">Text Case & Formatting Rules</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Headings:</strong> Title Case</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Body Text:</strong> Sentence case</li>
-                        <li style="padding: 10px 0;"><strong>Buttons:</strong> Title Case</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Headings (Lato):</strong> Title Case (e.g. <em>Building Better Experiences</em>)</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Body Text (Lato):</strong> Sentence case (e.g. <em>Our solutions are built...</em>)</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--light-grey);"><strong>Buttons (Lato):</strong> Title Case (e.g. <em>Primary Action</em>)</li>
+                        <li style="padding: 10px 0;"><strong>Tagline (Kaushan Script):</strong> Title Case only (<em>We make it happen</em>)</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Size Reasoning -->
+            <div class="size-reasoning">
+                <h4>Size Reasoning & Brand Justification</h4>
+                <div class="reasoning-grid">
+                    <div class="reasoning-item">
+                        <h5>Readability</h5>
+                        <p>16px body text with 25px line-height (1.5625 ratio) ensures comfortable reading for extended content consumption, meeting optimal readability standards for digital interfaces.</p>
+                    </div>
+                    <div class="reasoning-item">
+                        <h5>B2B Clarity</h5>
+                        <p>Clear hierarchy from 57px (H1) down to 16px (body) creates scannable content structure essential for enterprise decision-makers reviewing information quickly.</p>
+                    </div>
+                    <div class="reasoning-item">
+                        <h5>Professional Hierarchy</h5>
+                        <p>Consistent scale reduction between heading levels (57→47→32→24→21) maintains visual rhythm while differentiating content importance levels clearly.</p>
+                    </div>
+                    <div class="reasoning-item">
+                        <h5>Accessibility (WCAG AA)</h5>
+                        <p>Minimum 16px text size meets WCAG AA standards. Combined with Lato's open letterforms and generous x-height, ensures legibility for users with visual impairments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Reference -->
+            <div class="brand-reference">
+                <h4>Design Framework Alignment</h4>
+                <p>Our typography system follows enterprise B2B best practices established by leading design frameworks. The 16px minimum body text aligns with IBM Carbon and Microsoft Fluent UI standards. Our line-height ratio (1.5625) matches Atlassian Design System recommendations for enterprise readability. The clear hierarchy mirrors SAP Fiori's information architecture principles. All sizing decisions meet WCAG AA contrast and readability requirements.</p>
+                <div class="reference-list">
+                    <span class="reference-badge">IBM Carbon</span>
+                    <span class="reference-badge">Atlassian Design System</span>
+                    <span class="reference-badge">SAP Fiori</span>
+                    <span class="reference-badge">Microsoft Fluent UI</span>
+                    <span class="reference-badge">WCAG AA</span>
                 </div>
             </div>
         </div>
@@ -1113,6 +1805,23 @@ font-family: 'Lato', sans-serif;</div>
                             <span class="color-usage-tag">Cards</span>
                             <span class="color-usage-tag">Dividers</span>
                             <span class="color-usage-tag">Counters</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Gradient -->
+                <div class="color-item">
+                    <div class="color-swatch" style="background: linear-gradient(135deg, #008CB6 0%, #06325E 100%);">
+                        <span class="color-name">linear-gradient</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">(135deg, #008CB6 → #06325E)</div>
+                        <p class="color-usage">Primary brand gradient for hero backgrounds, banners, cards, and accents</p>
+                        <div>
+                            <span class="color-usage-tag">Hero BG</span>
+                            <span class="color-usage-tag">Banners</span>
+                            <span class="color-usage-tag">CTA Accent</span>
+                            <span class="color-usage-tag">Illustrations</span>
                         </div>
                     </div>
                 </div>
@@ -1351,32 +2060,6 @@ textarea {
                 <p class="section-description">Reusable, consistent components ensure design scalability and maintainability</p>
             </div>
 
-            <!-- <div class="component-preview">
-                <h3 style="color: var(--dark-blue); margin-bottom: 30px; text-align: center;">Counter Boxes</h3>
-                <div class="counter-showcase">
-                    <div class="counter-box">
-                        <div class="counter-icon">📊</div>
-                        <div class="counter-number">10K+</div>
-                        <p class="counter-desc">Active Users</p>
-                    </div>
-                    <div class="counter-box">
-                        <div class="counter-icon">🎯</div>
-                        <div class="counter-number">500+</div>
-                        <p class="counter-desc">Partner Companies</p>
-                    </div>
-                    <div class="counter-box">
-                        <div class="counter-icon">✨</div>
-                        <div class="counter-number">95%</div>
-                        <p class="counter-desc">Success Rate</p>
-                    </div>
-                    <div class="counter-box">
-                        <div class="counter-icon">🚀</div>
-                        <div class="counter-number">24/7</div>
-                        <p class="counter-desc">Support Available</p>
-                    </div>
-                </div>
-            </div> -->
-
             <!-- Component Specs -->
             <div class="grid grid-2" style="margin-top: 40px;">
                 <div class="card">
@@ -1424,13 +2107,15 @@ textarea {
                     </div>
                     <div class="do-dont-content">
                         <ul>
-                            <li>Use Lato font family consistently across all text</li>
+                            <li>Use Lato font family consistently across all headings, body text, and UI components</li>
+                            <li>Exclusively render the signature tagline &ldquo;We make it happen&rdquo; in Kaushan Script</li>
+                            <li>Use the main SVG logo on pure white and light grey backgrounds</li>
+                            <li>Use the reverse white logo (with &reg;) on dark blue, pure black, and footer surfaces</li>
+                            <li>Maintain clear space equal to or greater than the &lsquo;C&rsquo; height on all four sides</li>
                             <li>Maintain 30px border-radius for all buttons</li>
                             <li>Apply 10px border-radius to cards and containers</li>
                             <li>Use #008CB6 for primary actions and links</li>
                             <li>Keep button minimum touch target at 44px on mobile</li>
-                            <li>Use Title Case for headings and buttons</li>
-                            <li>Apply proper spacing: 20-35px mobile, 40-60px desktop</li>
                             <li>Maintain consistent image heights with object-fit: cover</li>
                         </ul>
                     </div>
@@ -1442,14 +2127,16 @@ textarea {
                     </div>
                     <div class="do-dont-content">
                         <ul>
+                            <li>Never render &ldquo;We make it happen&rdquo; in Lato, Arial, or any non-script font</li>
+                            <li>Never use Kaushan Script for regular headings, body paragraphs, or buttons</li>
+                            <li>Never place the main blue logo on dark backgrounds (always use the reverse logo)</li>
+                            <li>Never stretch, skew, rotate, or alter the logo's aspect ratio</li>
                             <li>Never use border-radius below 25px for buttons</li>
-                            <li>Avoid using multiple font families in one design</li>
+                            <li>Avoid introducing unauthorized font families beyond Lato and Kaushan Script</li>
                             <li>Don't make buttons full-width on desktop</li>
                             <li>Never use lowercase for button text</li>
                             <li>Avoid inconsistent color codes (use uppercase hex)</li>
-                            <li>Don't use border-radius other than 6px, 10px, or 30px</li>
                             <li>Never skip hover states on interactive elements</li>
-                            <li>Avoid cramped spacing or excessive whitespace</li>
                         </ul>
                     </div>
                 </div>
@@ -1510,7 +2197,7 @@ textarea {
     </section>
 
     <!-- Download Section -->
-    <section class="download-section" style="margin: 0;">
+   <!--  <section class="download-section" style="margin: 0;">
         <div class="container">
             <div class="download-content">
                 <h2>Ready to Build with CAREERNET?</h2>
@@ -1521,12 +2208,16 @@ textarea {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 CAREERNET. All rights reserved. | Design System Version 2.0</p>
+            <div style="margin-bottom: 25px;">
+                <img src="https://careernet.in/wp-content/uploads/2025/03/CN_Logo_With_R-Web-footer.png" alt="Careernet Reverse Logo" style="height: 44px; max-width: 220px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));">
+                <div style="font-family: 'Kaushan Script', cursive; font-size: 26px; color: var(--action-yellow); letter-spacing: 0.5px;">We make it happen</div>
+            </div>
+            <p>© 2026 Careernet. All rights reserved. | Design System Version 2.0</p>
         </div>
     </footer>
 
